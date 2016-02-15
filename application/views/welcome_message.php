@@ -9,11 +9,14 @@
     <link href="/assets/css/grid.css" rel="stylesheet" type="text/css"/>
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/owl.carousel.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/owl.theme.css" rel="stylesheet" type="text/css"/>
     <meta name="viewport" content="width=1200px">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script src="/assets/js/jquery-2.1.3.min.js"></script>
+    <script src="/assets/js/owl.carousel.min.js"></script>
     <link rel="icon" href="/icon.ico" type="image/x-icon"/>
 </head>
 <body>
@@ -31,7 +34,7 @@
                 <a href="<?php echo base_url('/more')?>">Еще...</a>
             </div>
             <div class="grid_2 login_area">
-                <a href="<?php echo base_url('/account/login')?>" class="button master"><i class="fa fa-key"></i> Войти</a>
+                <a href="<?php echo base_url('/profile/signin')?>" class="button master"><i class="fa fa-key"></i> Войти</a>
             </div>
         </div>
     </header>
@@ -49,7 +52,7 @@
                         Я хочу найти исполнителя
                     </p>
                     <p class="text_align_center">
-                        <a href="#" class="left_link">Подобрать мне исполнителя</a>
+                        <a href="<?php echo base_url('/search/')?>" class="left_link">Подобрать мне исполнителя</a>
                     </p>
                 </div>
                 <div class="right_block">
@@ -57,7 +60,7 @@
                         Я хочу стать исполнителем
                     </p>
                     <p class="text_align_center">
-                        <a href="#" class="right_link">Предложить свои услуги</a>
+                        <a href="<?php echo base_url('/profile/signup')?>" class="right_link">Предложить свои услуги</a>
                     </p>
                 </div>
                 <div class="clearfix"></div>
@@ -107,6 +110,9 @@
         </div>
         <div class="clearfix"></div>
 
+        <div class="top_user_list">
+        
+        
         <div class="grid_5 top_user_item">
             <div class="user_info">
                 <div class="user_info_avatar">
@@ -612,8 +618,157 @@
             </div>
         </div>
 
+            </div>
+        <div class="clearfix"></div>
+        <p class="btn_more">
+            <a href="#">Показать всех исполнителей <i class="fa fa-eye"></i></a>
+        </p>
+        
+    </div>
+    <div class="clearfix"></div>
+    <div class="top_recomended">
+        <div class="container_15">
+            <div class="grid_15 text_align_center">
+                <p class="p_title padding_10px">Акции от исполнителей</p>
+            </div>
+            <div class="clearfix"></div>
+            <div class="action_list">
+                <div class="action_list_row">
+                    <div class="action_list_item">
+                        <div class="panel">
+                            <div class="panel_title">Фотосет за рекомендацию!</div>
+                            <div class="panel_content">
+                                Красивые условия акций! asjk dsad jkash djkashjkd hask hdkjashk jdjsakh dkjash djkhasjkd jkash djkash kjdhasjkdh kajsh djkashd jkash dkj
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action_list_item">
+                        <div class="panel">
+                            <div class="panel_title">Фотосет за рекомендацию!</div>
+                            <div class="panel_content">
+                                Красивые условия акций! 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action_list_item">
+                        <div class="panel">
+                            <div class="panel_title">Фотосет за рекомендацию!</div>
+                            <div class="panel_content">
+                                Красивые условия акций! asjk dsad jkash djkashjkd hask hdkjashk jdjsakh dkjash djkhasjkd jkash djkash kjdhasjkdh kajsh djkashd jkash dkj
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="action_list_row">
+                    <div class="action_list_item">
+                        <div class="panel">
+                            <div class="panel_title">Фотосет за рекомендацию!</div>
+                            <div class="panel_content">
+                                Красивые условия акций! asjk dsad jkash djkashjkd hask hdkjashk jdjsakh dkjash djkhasjkd jkash djkash kjdhasjkdh kajsh djkashd jkash dkj
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action_list_item">
+                        <div class="panel">
+                            <div class="panel_title">Фотосет за рекомендацию!</div>
+                            <div class="panel_content">
+                                Красивые условия акций! asjk dsad jkash djkashjkd hask hdkjashk jdjsakh dkjash djkhasjkd jkash djkash kjdhasjkdh kajsh djkashd jkash dkj
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action_list_item">
+                        <div class="panel">
+                            <div class="panel_title">Фотосет за рекомендацию!</div>
+                            <div class="panel_content">
+                                Красивые условия акций! asjk dsadsljflkdsj fklj sdklfj ksldjf kldsjfkljsdklfj klsdjfklsdjklfj klsdjfklsjd klfjdskljf lksdj klfjsdklfj sdkljf lksdj fklsdjf kldsj fkldsj fkl jkash djkashjkd hask hdkjashk jdjsakh dkjash djkhasjkd jkash djkash kjdhasjkdh kajsh djkashd jkash dkj
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="btn_more">
+                <a href="#">Посмотреть все акции <i class="fa fa-eye"></i></a>
+            </p>
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+    <div class="container_15">
+        <div class="grid_15 text_align_center">
+            <p class="p_title padding_10px">Новостная лента</p>
+        </div>
+        <div class="clearfix"></div>
+        <div class="news_list">
+            <div class="grid_5 news_list_item">
+                <div class="panel">
+                    <div class="panel_title">Фотосет за рекомендацию!</div>
+                    <div class="panel_content">
+                        Красивые условия акций! asjk dsad jkash djkashjkd hask hdkjashk jdjsakh dkjash djkhasjkd jkash djkash kjdhasjkdh kajsh djkashd jkash dkj
+                    </div>
+                </div>
+            </div>
+            <div class="grid_5 news_list_item">
+                <div class="panel">
+                    <div class="panel_title">Фотосет за рекомендацию!</div>
+                    <div class="panel_content">
+                        Красивые условия акций! asjk dsad jkash djkashjkd hask hdkjashk jdjsakh dkjash djkhasjkd jkash djkash kjdhasjkdh kajsh djkashd jkash dkj
+                    </div>
+                </div>
+            </div>
+            <div class="grid_5 news_list_item">
+                <div class="panel">
+                    <div class="panel_title">Фотосет за рекомендацию!</div>
+                    <div class="panel_content">
+                        Красивые условия акций! asjk dsad jkash djkashjkd hask hdkjashk jdjsakh dkjash djkhasjkd jkash djkash kjdhasjkdh kajsh djkashd jkash dkj
+                    </div>
+                </div>
+            </div>
+            <div class="grid_5 news_list_item">
+                <div class="panel">
+                    <div class="panel_title">Фотосет за рекомендацию!</div>
+                    <div class="panel_content">
+                        Красивые условия акций! asjk dsad jkash djkashjkd hask hdkjashk jdjsakh dkjash djkhasjkd jkash djkash kjdhasjkdh kajsh djkashd jkash dkj
+                    </div>
+                </div>
+            </div>
+            <div class="grid_5 news_list_item">
+                <div class="panel">
+                    <div class="panel_title">Фотосет за рекомендацию!</div>
+                    <div class="panel_content">
+                        Красивые условия акций! asjk dsad jkash djkashjkd hask hdkjashk jdjsakh dkjash djkhasjkd jkash djkash kjdhasjkdh kajsh djkashd jkash dkj
+                    </div>
+                </div>
+            </div>
+            <div class="grid_5 news_list_item">
+                <div class="panel">
+                    <div class="panel_title">Фотосет за рекомендацию!</div>
+                    <div class="panel_content">
+                        Красивые условия акций! asjk dsad jkash djkashjkd hask hdkjashk jdjsakh dkjash djkhasjkd jkash djkash kjdhasjkdh kajsh djkashd jkash dkj
+                    </div>
+                </div>
+            </div>
+            
+            <div class="clearfix"></div>
+        </div>
+        <p class="btn_more">
+            <a href="#">Посмотреть всю новостную ленту <i class="fa fa-eye"></i></a>
+        </p>
         <div class="clearfix"></div>
     </div>
-
+    <div class="clearfix"></div>
+    <div class="container_15">
+        <div class="grid_15 footer">
+            Astanafoto.kz &copy; 2016
+            <a href="<?php echo base_url('/about')?>">О проекте</a>
+            <a href="<?php echo base_url('/terms')?>">Условия использования</a>
+            <a href="<?php echo base_url('/feedvack')?>">Обратная связь</a>
+            <a href="<?php echo base_url('/support')?>">Тех. поддержка</a>
+            <a href="<?php echo base_url('/ad')?>">Реклама</a>
+        </div>
+    </div>
+    
+    
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>

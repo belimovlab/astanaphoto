@@ -1,0 +1,61 @@
+/* 
+    Created on : 08.02.2016, 19:39:43
+    Author     : belimov
+*/
+
+.reg_advantage{
+    width: 100%;
+    padding: 0px 15px;
+}
+
+.reg_advantage ul li{
+    list-style: decimal;
+    margin: 15px 0px;
+    
+}
+
+input,button,textarea {
+    outline: none;
+}
+
+input,select,textarea {
+
+    display: block;
+    margin-top: 0;
+    background: 0 0;
+    padding: 5px;
+    border-width: 1px;
+    line-height: 26px;
+    height: 36px;
+    -ms-flex-preferred-size: 26px;
+    border-radius: 0;
+    border-style: solid;
+    width: 100%;
+    box-sizing: border-box;
+    color: rgba(0,0,0,0.87);
+    border-color: rgba(0,0,0,0.12);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+input:focus, select:focus, textarea:focus{
+	border-color: #03A9F4;
+}
+
+
+textarea{
+    height: 100px;
+    line-height: 20px;
+    resize: vertical;
+}
+
+
+label{
+    padding: 0px;
+    margin: 0px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    display: block;
+    font-weight: bold;
+    color: rgba(0,0,0,.64);
+}
