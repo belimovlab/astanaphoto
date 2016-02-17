@@ -12,5 +12,32 @@ $(document).ready(function() {
       items : 3
   });
   
+  
+
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+    
+    var items = [
+
+    ];
+    
+    var options = [
+
+    ];
+
+    $('.photo_list_item').each(function(index){
+        items.push({
+            src: $(this).find('img').attr('data-show_src'),
+            h:   $(this).find('img').attr('data-show_h'),
+            w:   $(this).find('img').attr('data-show_w')
+        });
+    });
+    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items,options);
+    
+    
+    $('.photo_list_item').click(function(){
+        gallery.init();
+        //alert('dfg');
+    });
+  
 
 });

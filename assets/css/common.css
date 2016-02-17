@@ -32,7 +32,7 @@ html,body{
     overflow-x: hidden;
     color: #2f2f2f;
     font-size: 13px;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Open Sans",Helvetica,Arial,sans-serif;
 }
 
 header{
@@ -539,9 +539,34 @@ a.my_profile{
     
 }
 
+.panel_dark{
+    background-color: #315c7d;
+    color: #ededed;
+    border-radius: 3px;
+    display: block;
+    width: 100%;
+}
 
 
+.panel_dark .panel_title{
+    padding: 21px 30px;
+    font-size: 15px;
+    color: #ededed;
+    font-weight: 400;
+    border-bottom: 1px solid #ededed;
+    position: relative;
+}
 
+
+.panel_dark .panel_title:after{
+    content: "";
+    width: 90px;
+    height: 1px;
+    background: #f07b6f;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+}
 
 
 
