@@ -22,6 +22,7 @@
     <![endif]-->
     <script src="/assets/js/jquery-2.1.3.min.js"></script>
     <script src="/assets/js/owl.carousel.min.js"></script>
+    <script src="/assets/js/main_app.js"></script>
     <link rel="icon" href="/assets/images/favicon_1.ico" type="image/x-icon"/>
 </head>
 <body>

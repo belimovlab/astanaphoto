@@ -25,6 +25,9 @@
 
 .user_avatar img{
     width: 240px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
 }
 
 .user_avatar p{

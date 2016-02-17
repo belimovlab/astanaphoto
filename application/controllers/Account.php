@@ -20,7 +20,7 @@ class Account extends CI_Controller {
 	public function index()
 	{
             $this->data['header'] = $this->themelib->get_header($this->data['user_info']->first_name." ".$this->data['user_info']->second_name,'account,photoswipe,default-skin/default-skin',  $this->data);
-            $this->data['footer'] = $this->themelib->get_footer('photoswipe.min,photoswipe-ui-default.min,main');
+            $this->data['footer'] = $this->themelib->get_footer('photoswipe.min,photoswipe-ui-default.min,account');
             $this->data['ganres'] = $this->main_model->get_all_ganres();
             $this->load->view('account/index',  $this->data);
 	}

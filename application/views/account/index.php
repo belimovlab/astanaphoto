@@ -55,12 +55,39 @@
             <div class="panel margin_top_20px">
                 <div class="panel_title">Лучшие работы<span class="edit"><i class="fa fa-pencil"></i> <a href="<?php echo base_url('/account/edit_top_works')?>">Редактировать</a></span></div>
                 <div class="panel_content">
-                    <div class="photo_list">
+                    <div class="photo_list" data-gal_id="1">
                         <div class="photo_list_item">
                             <img src="http://cs633629.vk.me/v633629567/697b/GDNw-gRVVe8.jpg" data-show_src="http://www.zooclub.ru/attach/5356.jpg" data-show_h="2666" data-show_w="4000">
                         </div>
                         <div class="photo_list_item">
                             <img src="http://cs633629.vk.me/v633629567/697b/GDNw-gRVVe8.jpg">
+                        </div>
+                        <div class="photo_list_item">
+                            <img src="http://cs633629.vk.me/v633629567/697b/GDNw-gRVVe8.jpg">
+                        </div>
+                        <div class="photo_list_item">
+                            <img src="http://cs633629.vk.me/v633629567/697b/GDNw-gRVVe8.jpg">
+                        </div>
+                        <div class="photo_list_item">
+                            <img src="http://cs633629.vk.me/v633629567/697b/GDNw-gRVVe8.jpg">
+                        </div>
+                        <div class="photo_list_item">
+                            <img src="http://cs633629.vk.me/v633629567/697b/GDNw-gRVVe8.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            
+            <div class="panel margin_top_20px">
+                <div class="panel_title">Лучшие работы<span class="edit"><i class="fa fa-pencil"></i> <a href="<?php echo base_url('/account/edit_top_works')?>">Редактировать</a></span></div>
+                <div class="panel_content">
+                    <div class="photo_list" data-gal_id="2">
+                        <div class="photo_list_item">
+                            <img src="http://cs633629.vk.me/v633629567/697b/GDNw-gRVVe8.jpg" data-show_src="http://funday.com.ua/uploads/posts/2009-06/1245320765_5-funday-wide-wallpack-1.jpg" data-show_h="1650" data-show_w="2560">
+                        </div>
+                        <div class="photo_list_item">
+                            <img src="http://cs633629.vk.me/v633629567/697b/GDNw-gRVVe8.jpg" data-show_src="http://www.zastavki.com/pictures/1920x1200/2011/Nature_Other_Large_stones_029977_.jpg" data-show_h="1200" data-show_w="1920">
                         </div>
                         <div class="photo_list_item">
                             <img src="http://cs633629.vk.me/v633629567/697b/GDNw-gRVVe8.jpg">
