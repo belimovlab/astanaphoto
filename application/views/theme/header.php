@@ -22,15 +22,15 @@
     <![endif]-->
     <script src="/assets/js/jquery-2.1.3.min.js"></script>
     <script src="/assets/js/owl.carousel.min.js"></script>
-    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="/assets/images/favicon_1.ico" type="image/x-icon"/>
 </head>
 <body>
     <header>
         <div class="container_15">
             <div class="grid_3 logo">
-                <a href="<?php base_url('/')?>"><img src="/assets/images/logo.png"></a>
+                <a href="<?php echo base_url('/')?>"><img src="/assets/images/logo.png"></a>
             </div>
-            <div class="grid_10 navigation">
+            <div class="grid_9 navigation">
                 <a href="<?php echo base_url('/doer')?>">Исполнители</a>
                 <a href="<?php echo base_url('/projects')?>">Проекты</a>
                 <a href="<?php echo base_url('/actions')?>">Акции</a>
@@ -38,8 +38,13 @@
                 <a href="<?php echo base_url('/news')?>">Статьи</a>
                 <a href="<?php echo base_url('/more')?>">Еще...</a>
             </div>
-            <div class="grid_2 login_area">
+            <div class="grid_3 login_area">
+                <?php if($user_info->id):?>
+                <a href="<?php echo base_url('/account')?>" class="my_profile button ok"><i class="fa fa-user"></i> Профиль</a>
+                <a href="<?php echo base_url('/profile/signout')?>" class="my_profile button red"><i class="fa fa-power-off"></i> Выйти</a>
+                <?php else:?>
                 <a href="<?php echo base_url('/profile/signin')?>" class="button master"><i class="fa fa-key"></i> Войти</a>
+                <?php endif;?>
             </div>
         </div>
     </header>

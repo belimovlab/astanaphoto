@@ -20,7 +20,6 @@ class Auth {
         {
             $this->CI->session->set_userdata('user_info',$user_info);
             $this->CI->session->set_userdata('user_logined','1');
-            $this->CI->session->set_userdata('system_info',  $this->CI->db->get('system')->row());
         }
         
         public function user_logout()
@@ -33,6 +32,19 @@ class Auth {
         public function set_redirect_url()
         {
             $this->CI->session->set_userdata('redirected_url',$this->CI->uri->uri_string());
+        }
+        
+        public function try_signin($res)
+        {
+            if($res->id)
+            {
+                $this->user_login($res);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 }
 

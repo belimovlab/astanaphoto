@@ -1,43 +1,4 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="utf-8">
-    <title><?php echo $title ? $title: SITE_TITLE;  ?></title>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <link href="/assets/css/normalize.css" rel="stylesheet" type="text/css"/>
-    <link href="/assets/css/grid.css" rel="stylesheet" type="text/css"/>
-    <link href="/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/assets/css/common.css" rel="stylesheet" type="text/css"/>
-    <link href="/assets/css/owl.carousel.css" rel="stylesheet" type="text/css"/>
-    <link href="/assets/css/owl.theme.css" rel="stylesheet" type="text/css"/>
-    <meta name="viewport" content="width=1200px">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <script src="/assets/js/jquery-2.1.3.min.js"></script>
-    <script src="/assets/js/owl.carousel.min.js"></script>
-    <link rel="icon" href="/icon.ico" type="image/x-icon"/>
-</head>
-<body>
-    <header>
-        <div class="container_15">
-            <div class="grid_3 logo">
-                <a href="<?php base_url('/')?>"><img src="/assets/images/logo.png"></a>
-            </div>
-            <div class="grid_10 navigation">
-                <a href="<?php echo base_url('/ispolniteli')?>">Исполнители</a>
-                <a href="<?php echo base_url('/projects')?>">Проекты</a>
-                <a href="<?php echo base_url('/akcii')?>">Акции</a>
-                <a href="<?php echo base_url('/contest')?>">Конкурсы</a>
-                <a href="<?php echo base_url('/news')?>">Статьи</a>
-                <a href="<?php echo base_url('/more')?>">Еще...</a>
-            </div>
-            <div class="grid_2 login_area">
-                <a href="<?php echo base_url('/profile/signin')?>" class="button master"><i class="fa fa-key"></i> Войти</a>
-            </div>
-        </div>
-    </header>
+<?php echo $header;?>
     <div class="clearfix"></div>
     <div class="top_background">
         <div class="container_15">
@@ -69,36 +30,11 @@
         </div>
         <div class="top_catalog">
             <div class="container_15">
+                <?php foreach($ganres as $one):?>
                 <div class="grid_3 padding_10px text_align_center">
-                    <a href="#"><i class="fa fa-camera"></i> Фотографы</a>
+                    <a href="<?php echo base_url('/search/'.$one->link)?>"><i class="<?php echo $one->icon?>"></i> <?php echo $one->name?></a>
                 </div>
-                <div class="grid_3 padding_10px text_align_center">
-                    <a href="#"><i class="fa fa-building"></i> Фотостудии</a>
-                </div>
-                <div class="grid_3 padding_10px text_align_center">
-                    <a href="#"><i class="fa fa-video-camera"></i> Видеографы</a>
-                </div>
-                <div class="grid_3 padding_10px text_align_center">
-                    <a href="#"><i class="fa fa-reddit-alien"></i> Аниматоры</a>
-                </div>
-                <div class="grid_3 padding_10px text_align_center">
-                    <a href="#"><i class="fa fa-female"></i> Модели</a>
-                </div>
-                <div class="grid_3 padding_10px text_align_center">
-                    <a href="#"><i class="fa fa-paint-brush"></i> Стилисты</a>
-                </div>
-                <div class="grid_3 padding_10px text_align_center">
-                    <a href="#"><i class="fa fa-scissors"></i> Парикмахеры</a>
-                </div>
-                <div class="grid_3 padding_10px text_align_center">
-                    <a href="#"><i class="fa fa-anchor"></i> TATOO мастера</a>
-                </div>
-                <div class="grid_3 padding_10px text_align_center">
-                    <a href="#"><i class="fa fa-hand-paper-o"></i> Ногтевой сервис</a>
-                </div>
-                <div class="grid_3 padding_10px text_align_center">
-                    <a href="#"><i class="fa fa-leaf"></i> Флористы</a>
-                </div>
+                <?php endforeach;?>
             </div>
             <div class="clearfix"></div>
         </div>
@@ -757,18 +693,4 @@
         <div class="clearfix"></div>
     </div>
     <div class="clearfix"></div>
-    <div class="container_15">
-        <div class="grid_15 footer">
-            Astanafoto.kz &copy; 2016
-            <a href="<?php echo base_url('/about')?>">О проекте</a>
-            <a href="<?php echo base_url('/terms')?>">Условия использования</a>
-            <a href="<?php echo base_url('/feedvack')?>">Обратная связь</a>
-            <a href="<?php echo base_url('/support')?>">Тех. поддержка</a>
-            <a href="<?php echo base_url('/ad')?>">Реклама</a>
-        </div>
-    </div>
-    
-    
-    <script src="/assets/js/main.js"></script>
-</body>
-</html>
+<?php echo $footer;

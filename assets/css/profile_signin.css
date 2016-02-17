@@ -14,7 +14,7 @@
     
 }
 
-input,button,textarea {
+input,button,textarea,select {
     outline: none;
 }
 
@@ -42,6 +42,9 @@ input:focus, select:focus, textarea:focus{
 	border-color: #03A9F4;
 }
 
+select{
+    font-weight: bold;
+}
 
 textarea{
     height: 100px;
@@ -59,3 +62,66 @@ label{
     font-weight: bold;
     color: rgba(0,0,0,.64);
 }
+
+
+p.sub_title{
+    font-size: 20px;
+}
+
+
+.sub_content_block{
+    width: 100%;
+    display: block;
+    padding: 10px 20px;
+}
+
+.sub_content_block .sub_title{
+    font-size: 20px;
+    margin-left: -15px;
+}
+
+.sub_content_block .sub_content_block_content{
+    display: block;
+    width: 100%;
+}
+
+
+a.right_terms{
+    color:#03A9F4;
+    text-decoration: none;
+}
+
+a.right_terms:hover{
+    text-decoration: underline;
+}
+
+p.error_mess{
+    text-align: center;
+    color: #F44336;
+    font-size: 15px;
+    border: 1px solid #F44336;
+    padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,81 @@
+/* 
+    Created on : 15.02.2016, 17:25:42
+    Author     : belimov
+*/
+
+
+
+.panel_title span.edit{
+    float: right;
+    font-size: 11px;
+}
+
+.panel_title span.edit a{
+    text-decoration: none;
+}
+
+.panel_title span.edit a:hover{
+    text-decoration: underline;
+}
+
+.user_avatar{
+    width: 100%;
+    display: block;
+}
+
+.user_avatar img{
+    width: 240px;
+}
+
+.user_avatar p{
+    text-align: center;
+}
+.user_avatar a{
+    color: #1e1e1e;
+    padding: 5px;
+}
+
+.user_avatar a:hover{
+    text-decoration: underline;
+}
+
+.rating_right{
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.rating_right span.green{
+    color: #00ada7;
+}
+
+.rating_right span.red{
+    color: #F44336;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

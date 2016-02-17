@@ -42,8 +42,8 @@
 * @property CI_Zip $zip
 * @property Themelib $themelib
 * @property Auth $auth
-* @property Profile_model $profile_model
- * @property Storage_model $storage_model
+* @property Main_model $main_model
+ * @property Profile_model $profile_model
 */
 
 class CI_Controller {};
