@@ -1,39 +1,3 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-        
- /*
-    var pswpElement = document.querySelectorAll('.pswp')[0];
-    
-    var items = [
-
-    ];
-    
-    var options = [
-
-    ];
-
-    $('.photo_list_item').each(function(index){
-        items.push({
-            src: $(this).find('img').attr('data-show_src'),
-            h:   $(this).find('img').attr('data-show_h'),
-            w:   $(this).find('img').attr('data-show_w')
-        });
-    });
-    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items,options);
-    
-    
-    $('.photo_list_item').click(function(e){
-        e.preventDefault();
-        gallery.init();
-        //alert('dfg');
-    });
-  
-*/
-
 var StorageApp = new CreateApp({ 
     jq: '',
     items: [],
@@ -66,6 +30,28 @@ var StorageApp = new CreateApp({
             }
         });
     },
+    check_main_element: function(){
+        var _th = this;
+        var tmp_el = $('body').has('.pswp');
+        if(tmp_el.length === 0)
+        {
+            $('body').append('<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">'+
+                    '<div class="pswp__bg"></div>'+'<div class="pswp__scroll-wrap">' +'<div class="pswp__container">' +
+                    '<div class="pswp__item"></div>' +'<div class="pswp__item"></div>' +'<div class="pswp__item"></div>' +
+                    '</div>' +'<div class="pswp__ui pswp__ui--hidden">' +'<div class="pswp__top-bar">' +
+                    '<div class="pswp__counter"></div>' +'<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>' +
+                    '<button class="pswp__button pswp__button--share" title="Share"></button>' +
+                    '<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>' +
+                    '<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>' +
+                    '<div class="pswp__preloader">' +'<div class="pswp__preloader__icn">' +
+                    '<div class="pswp__preloader__cut">' +'<div class="pswp__preloader__donut"></div>' +'</div>' +'</div>' +'</div>' +'</div>' +
+                    '<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">' +'<div class="pswp__share-tooltip"></div>' +
+                    '</div>' +'<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">' +
+                    '</button>' +'<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">' +'</button>' +
+                    '<div class="pswp__caption">' +'<div class="pswp__caption__center"></div>' +'</div>' +'</div>' +'</div>' +'</div>');
+        }
+        _th.pswpElement = document.querySelectorAll('.pswp')[0];
+    },
     set_ps_gallery: function(){
         var _th = this;
         _th.jq('.photo_list').each(function(index){
@@ -77,7 +63,7 @@ var StorageApp = new CreateApp({
     },
     init: function(jquery){ 
         this.jq = jquery; 
-        this.pswpElement = document.querySelectorAll('.pswp')[0];
+        this.check_main_element();
         this.set_ps_gallery();
         this.bind_click();
     } 

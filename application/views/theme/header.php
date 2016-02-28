@@ -31,17 +31,15 @@
             <div class="grid_3 logo">
                 <a href="<?php echo base_url('/')?>"><img src="/assets/images/logo.png"></a>
             </div>
-            <div class="grid_9 navigation">
+            <div class="grid_6 navigation">
                 <a href="<?php echo base_url('/doer')?>">Исполнители</a>
-                <a href="<?php echo base_url('/projects')?>">Проекты</a>
                 <a href="<?php echo base_url('/actions')?>">Акции</a>
                 <a href="<?php echo base_url('/contest')?>">Конкурсы</a>
                 <a href="<?php echo base_url('/news')?>">Статьи</a>
-                <a href="<?php echo base_url('/more')?>">Еще...</a>
             </div>
-            <div class="grid_3 login_area">
+            <div class="grid_6 login_area">
                 <?php if($user_info->id):?>
-                <a href="<?php echo base_url('/account')?>" class="my_profile button ok"><i class="fa fa-user"></i> Профиль</a>
+                <a href="<?php echo base_url('/account')?>" class="my_profile1"> <img src="/content/user_avatars/small_photo.png"> <?php echo $user_info->first_name." ".$user_info->second_name?></a>
                 <a href="<?php echo base_url('/profile/signout')?>" class="my_profile button red"><i class="fa fa-power-off"></i> Выйти</a>
                 <?php else:?>
                 <a href="<?php echo base_url('/profile/signin')?>" class="button master"><i class="fa fa-key"></i> Войти</a>

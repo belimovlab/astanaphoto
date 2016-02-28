@@ -533,10 +533,27 @@ p.btn_more a:hover{
 .show_all_button:hover{background: #43526a; color: #fff;}
 
 a.my_profile{
-    
     color: #fff;
     font-weight: bold;
-    
+}
+a.my_profile1{
+    color: #fff;
+    font-weight: bold;
+    line-height: 60px;
+    margin-right: 10px;
+}
+
+a.my_profile1:hover{
+    text-decoration: underline;
+}
+
+a.my_profile1 img{
+    vertical-align: middle;
+    display: inline-block;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-right: 10px;
 }
 
 .panel_dark{
@@ -569,12 +586,23 @@ a.my_profile{
 }
 
 
+.font_weight_bold{
+    font-weight: bold;
+}
 
+.edit_item{
+    height: 36px;
+    line-height: 36px;
+}
 
+.edit_item_button{
+    padding-top: 3px;
+    color: #fff;
+}
 
-
-
-
+.edit_item_button button{
+    color: #fff;
+}
 
 
 
@@ -728,3 +756,16 @@ a.my_profile{
     background: #1BC288;
 }
 
+.button:active {
+  -webkit-transform: scale(0.95);
+  -moz-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  -o-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+span.profi_span{
+    background: #1BC288;
+    color: #fff;
+    padding: 0px 10px;
+}
