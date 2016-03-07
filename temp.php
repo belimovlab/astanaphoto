@@ -41,9 +41,12 @@
 * @property CI_Xmlrpcs $xmlrpcs
 * @property CI_Zip $zip
 * @property Themelib $themelib
-* @property Auth $auth
+* @property Userlib $userlib
 * @property Main_model $main_model
  * @property Profile_model $profile_model
+ * @property Ganres_model $ganres_model
+ * @property User_model $user_model
+ * @property Emailsmtp $emailsmtp
 */
 
 class CI_Controller {};

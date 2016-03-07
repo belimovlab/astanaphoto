@@ -35,6 +35,8 @@
  * @since	Version 1.0.0
  * @filesource
  */
+require_once './system_config.php';
+
 
 /*
  *---------------------------------------------------------------
@@ -90,7 +92,7 @@ switch (ENVIRONMENT)
 		echo 'The application environment is not set correctly.';
 		exit(1); // EXIT_ERROR
 }
-require_once './system_config.php';
+
 /*
  *---------------------------------------------------------------
  * SYSTEM FOLDER NAME

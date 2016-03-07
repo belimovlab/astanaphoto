@@ -250,7 +250,9 @@ span.now_busy{
 }
 
 
-
+.borderred{
+    border: 1px solid #ccc;
+}
 
 
 

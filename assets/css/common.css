@@ -52,12 +52,14 @@ header{
     text-align: center;
     height: 60px;
     font-family: "Courier New", Courier, monospace;
+    border: none;
 }
 
 
 
 .logo img{
-    height: 56px;
+    height: 55px;
+    border: none;
 }
 
 .login_area{

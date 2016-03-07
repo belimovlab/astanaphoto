@@ -18,11 +18,15 @@ class Themelib {
             return $tmp_value;
         }
         
-        public function get_header($title='',$css='',$data=array())
+        public function get_header($title='',$css='',$data=[])
         {
             $this->data['css']    = array_unique(explode(',', $css));
-            $this->data['title']  = $title ? $title : 'Панель администратора';
-            $this->data           = array_merge($this->data,$data);
+            $this->data['title']  = $title ? $title : MainSiteConfig::get_item('site_title');
+            if(!empty($data))
+            {
+                $this->data           = array_merge($this->data,$data);
+            }
+            
             return $this->CI->load->view('/theme/header',  $this->data,TRUE);
         }
         

@@ -1,0 +1,163 @@
+/* 
+    Created on : 07.03.2016, 11:37:10
+    Author     : belimov
+*/
+
+.reg_advantage{
+    width: 100%;
+    padding: 0px 15px;
+}
+
+.reg_advantage ul li{
+    list-style: decimal;
+    margin: 15px 0px;
+    
+}
+
+input,button,textarea,select {
+    outline: none;
+}
+
+input,select,textarea {
+
+    display: block;
+    margin-top: 0;
+    background: 0 0;
+    padding: 5px;
+    border-width: 1px;
+    line-height: 26px;
+    height: 36px;
+    -ms-flex-preferred-size: 26px;
+    border-radius: 0;
+    border-style: solid;
+    width: 100%;
+    box-sizing: border-box;
+    color: rgba(0,0,0,0.87);
+    border-color: rgba(0,0,0,0.12);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+input:focus, select:focus, textarea:focus{
+	border-color: #03A9F4;
+}
+
+select{
+    font-weight: bold;
+}
+
+textarea{
+    height: 100px;
+    line-height: 20px;
+    resize: vertical;
+}
+
+
+label{
+    padding: 0px;
+    margin: 0px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    display: block;
+    font-weight: bold;
+    color: rgba(0,0,0,.64);
+}
+
+
+p.sub_title{
+    font-size: 20px;
+}
+
+
+.sub_content_block{
+    width: 100%;
+    display: block;
+    padding: 10px 20px;
+}
+
+.sub_content_block .sub_title{
+    font-size: 20px;
+    margin-left: -15px;
+}
+
+.sub_content_block .sub_content_block_content{
+    display: block;
+    width: 100%;
+}
+
+
+a.right_terms{
+    color:#03A9F4;
+    text-decoration: none;
+}
+
+a.right_terms:hover{
+    text-decoration: underline;
+}
+
+p.error_mess{
+    text-align: center;
+    color: #F44336;
+    font-size: 15px;
+    border: 1px solid #F44336;
+    padding: 10px;
+}
+
+p.success_mess{
+    text-align: center;
+    color: #259b24;
+    font-size: 15px;
+    border: 1px solid #259b24;
+    padding: 10px;
+}
+
+
+.new_select_class{
+    display: block;
+    margin-top: 0;
+    background: 0 0;
+    padding: 5px;
+    border-width: 1px;
+    line-height: 26px;
+    height: 36px;
+    -ms-flex-preferred-size: 26px;
+    border-radius: 0;
+    border-style: solid;
+    width: 100%;
+    box-sizing: border-box;
+    color: rgba(0,0,0,0.87);
+    border-color: rgba(0,0,0,0.12);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    
+}
+
+
+h1.center{
+    text-align: center;
+}
+
+p.right_text{
+    text-align:  right;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
