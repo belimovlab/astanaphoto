@@ -1,0 +1,80 @@
+
+/* 
+    Created on : 28.03.2016, 15:38:36
+    Author     : belimov
+*/
+
+
+.actions_list{
+    width: 100%;
+    display: block;
+
+}
+
+
+.actions_list_item{
+    width: 250px;
+    display: inline-block;
+    border: none;
+    float: left;
+    padding: 5px;
+}
+
+#show_image{
+    display: none;
+    width: 100%;
+    
+}
+
+ p.big_show_image{
+    text-align: center;
+}
+
+ p.big_show_image img{
+    width: 740px;
+}
+
+p.small_show_image{
+    text-align: center;
+}
+
+p.small_show_image img{
+    width: 200px;
+}
+
+img.action_big_image{
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    width: 740px;
+}
+
+
+.justify{
+    text-align: justify
+}
+
+
+p.action_text{
+    padding: 20px 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

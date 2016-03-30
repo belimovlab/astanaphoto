@@ -28,5 +28,8 @@ var MainAppObject = {
         var element_name = element.substr(1,element.length); 
         var SE = element.charAt(0) == '.' ? document.getElementsByClassName(element_name) : document.getElementById(element_name); 
         SE.addEventListener(action,callback,false); 
-    } 
+    },
+    my_trim: function(str){
+      return str.replace(/(?:(?:^|\n)\s+|\s+(?:$|\n))/g,'').replace(/\s+/g,' ');;
+    }
 };

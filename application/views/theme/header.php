@@ -12,6 +12,7 @@
     <link href="/assets/css/common/grid.css" rel="stylesheet" type="text/css"/>
     <link href="/assets/css/common/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     <link href="/assets/css/common/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/common/toast.css" rel="stylesheet" type="text/css"/>
     <?php if($meta_description):?>
     <meta name="description" content="<?php echo $meta_description;?>">
     <?php endif;?>
@@ -25,7 +26,8 @@
         <?php endif;?>
     <?php endforeach;?>
     <script src="/assets/js/jquery-2.1.3.min.js"></script>
-    
+    <script src="/assets/js/toast.js"></script>
+    <script src="/assets/js/main_app.js"></script>
 </head>
 <body>
     <header>
@@ -45,8 +47,8 @@
                 <?php else:?>
                 <div class="login_area_user">
                     <div class="user_name">
-                        <a href="<?php echo base_url('/profile')?>"><img src="/assets/images/male_avatar_10_small.png"></a>
-                        <a href="<?php echo base_url('/profile')?>">Святослав Белимов</a>
+                        <a href="<?php echo base_url('/profile')?>"><img src="<?php echo $user_info->small_photo ? $user_info->small_photo : MainSiteConfig::get_item('not_avatar_small')[$user_info->sex] ;?>"></a>
+                        <a href="<?php echo base_url('/profile')?>"><?php echo $user_info->first_name.' '.$user_info->second_name?></a>
                     </div>
                     <div class="logout">
                         <a href="<?php echo base_url('/account/logout')?>" class="btn btn_red">Выйти</a>

@@ -234,6 +234,19 @@ class Account extends CI_Controller {
                         if($response['status'] == "success")
                         {
                             redirect('/profile');
+                            
+                            $redirected_url = $this->themelib->getSessionValue('redirected_url');
+                            echo $redirected_url;
+                            if($redirected_url)
+                            {
+                                redirect($redirected_url);
+                            }
+                            else
+                            {
+                                redirect('/profile');
+                            }
+                            
+                            
                         }
                         else
                         {

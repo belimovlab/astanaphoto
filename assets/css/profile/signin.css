@@ -103,6 +103,13 @@ p.error_mess{
     padding: 10px;
 }
 
+p.success_mess{
+    text-align: center;
+    color: #009688;
+    font-size: 15px;
+    border: 1px solid #009688;
+    padding: 10px;
+}
 
 
 

@@ -43,7 +43,6 @@ class Userlib {
         }
         
         
-        
         public function login($email,$password)
         {
             $email = strtolower($email);
@@ -59,7 +58,7 @@ class Userlib {
                 {
                     $user_info = $this->CI->db->get_where('profile',array(
                         'user_id'=>$res->id
-                    ));
+                    ))->row();
                     
                     $user_info->email = $res->email;
                     $user_info->create_date =$res->create_date;
@@ -86,6 +85,16 @@ class Userlib {
                     'error'  => 'Пользователя с такими данными не существует.'
                 );
             }
+        }
+        
+        
+        public function reload_user_info()
+        {
+            $ac_user  = $this->CI->db->get_where('account',array('id'=>  $this->CI->session->userdata('user_info')->user_id))->row();
+            $pr_user  = $this->CI->db->get_where('profile',array('user_id'=>  $this->CI->session->userdata('user_info')->user_id))->row();
+            $pr_user->email = $ac_user->email;
+            $pr_user->create_date = $ac_user->crate_date;
+            $this->CI->session->set_userdata('user_info',$pr_user);
         }
 }
 
