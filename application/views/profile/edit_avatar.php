@@ -1,4 +1,11 @@
 <?php echo $header;?>
+<div class="sub_top">
+    <div class="content_top">
+        <a href="<?php echo base_url('/profile')?>">Мой профиль</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="<?php echo base_url('/profile/edit_avatar/')?>">Обновление аватара</a>
+    </div>
+</div>
 
 <div class="container_15 margin_top_20px">
     <div class="grid_11 panel">

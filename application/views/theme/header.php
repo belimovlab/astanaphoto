@@ -13,6 +13,7 @@
     <link href="/assets/css/common/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     <link href="/assets/css/common/common.css" rel="stylesheet" type="text/css"/>
     <link href="/assets/css/common/toast.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/common/imagehover.min.css" rel="stylesheet" type="text/css"/>
     <?php if($meta_description):?>
     <meta name="description" content="<?php echo $meta_description;?>">
     <?php endif;?>

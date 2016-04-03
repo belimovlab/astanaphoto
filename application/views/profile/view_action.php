@@ -12,18 +12,7 @@
     <div class="grid_11 panel">
         <div class="panel_title"><?php echo $title;?> <span class="edit"><a href="<?php echo base_url('/profile/delete_action/'.$action->id)?>"><i class="fa fa-trash"></i> Удалить</a></span></div>
         <div class="panel_content">
-            <?php if($error):?>
-            <p class="error_mess">
-                <?php echo $error;?>
-            </p>
-            <?php endif;?>
-            <?php if($success):?>
-            <p class="success_mess">
-                <?php echo $success;?>
-            </p>
-            <?php endif;?>
-            <h1 class="text_align_center"><?php echo $action->title;?></h1>
-            
+            <h1 class="text_align_center action_title_new"><?php echo $action->title;?></h1>
             <?php if($action->image):?>
             <p class="text_align_center">
                 <img src="/content/user_action/740_<?php echo $action->image;?>" class="action_big_image">

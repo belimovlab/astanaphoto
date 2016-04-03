@@ -40,6 +40,9 @@ class Profile extends CI_Controller {
             $this->data['port_albums']   = $this->profile_model->get_users_albums_with_photo($this->data['user_info']->user_id);
             $this->data['gets_albums']   = $this->profile_model->get_all_users_photos();
             
+            $this->data['user_albums'] = $this->profile_model->get_all_users_albums_by_id_key_array();
+                    
+            
             $this->data['actions']       = $this->profile_model->get_all_actions();
             $this->data['comments']      = $this->profile_model->get_all_users_comments();
             $this->data['comments_cnt']  = $this->profile_model->get_comments_count();
@@ -135,15 +138,6 @@ class Profile extends CI_Controller {
             }
         }
         
-        /**
-        *
-        * Check if all the parts exist, and 
-        * gather all the parts of the file together
-        * @param string $dir - the temporary directory holding all the parts of the file
-        * @param string $fileName - the original file name
-        * @param string $chunkSize - each chunk size (in bytes)
-        * @param string $totalSize - original file size (in bytes)
-        */
         private function createFileFromChunks($temp_dir, $fileName, $chunkSize, $totalSize) {
 
 
@@ -196,7 +190,8 @@ class Profile extends CI_Controller {
 
         }
 
-        private function rrmdir($dir) { 
+        private function rrmdir($dir) 
+        { 
             if (is_dir($dir)) { 
                 $objects = scandir($dir); 
                 foreach ($objects as $object) { 
@@ -362,7 +357,6 @@ class Profile extends CI_Controller {
             }
         }
         
-        
         public function albums_uploads()
         {
             if($this->input->post('upload_token') && $this->input->post('album_id'))
@@ -404,7 +398,6 @@ class Profile extends CI_Controller {
 
         }
         
-        
         private function createFileFromChunks_1($temp_dir, $fileName, $chunkSize, $totalSize, $album_id) {
 
 
@@ -442,7 +435,6 @@ class Profile extends CI_Controller {
             }
 
         }
-        
         
         private function save_user_photo($album_id,$new_file_name)
         {
@@ -549,7 +541,6 @@ class Profile extends CI_Controller {
                 echo json_encode(array("error"=>-1,'error_message'=> 'Album doesn`t exists!','error_type'=>'error_album_exist'));
             }
         }
-        
         
         public function delete_photo($photo_id)
         {
@@ -760,7 +751,6 @@ class Profile extends CI_Controller {
             }
         }
         
-        
         public function edit_top_works()
 	{
             $this->data['header'] = $this->themelib->get_header('Редактирование лучших работ','profile/index,profile/signin',  $this->data);
@@ -796,13 +786,13 @@ class Profile extends CI_Controller {
             }
         }
         
-        
         public function view_portfolio_item($album_id)
         {
             $res  =$this->profile_model->get_all_users_albums();
             if(in_array($album_id, $res))
             {
                 $this->data['album_id'] = $album_id;
+                $this->data['album_info_tmp'] = $this->profile_model->get_all_users_albums_by_id_key_array()[$album_id];
                 $this->data['album_photos'] = $this->profile_model->get_albums_photo($album_id);
                 $this->data['header']        = $this->themelib->get_header('Просмотр альбома','profile/index,profile/photoswipe',  $this->data);
                 $this->data['footer']        = $this->themelib->get_footer('photoswipe.min,photoswipe-ui-default.min,profile/index');
@@ -815,7 +805,6 @@ class Profile extends CI_Controller {
             }
         }
         
-        
         public function edit_actions()
         {
             $this->data['header'] = $this->themelib->get_header('Редактирование акций исполнителя','profile/index,profile/signin,profile/actions',  $this->data);
@@ -826,8 +815,6 @@ class Profile extends CI_Controller {
             $this->load->view('/profile/edit_actions',  $this->data);
         }
         
-        
-        
         public function create_action()
         {
             $this->data['header'] = $this->themelib->get_header('Добавление новой рекламной акции','profile/index,profile/signin,profile/actions,profile/ui/trumbowyg.min',  $this->data);
@@ -837,7 +824,6 @@ class Profile extends CI_Controller {
             $this->data['all_actions'] = $this->profile_model->get_all_actions();
             $this->load->view('/profile/create_action',  $this->data);
         }
-        
         
         public function upload_action()
         {
@@ -871,8 +857,6 @@ class Profile extends CI_Controller {
                 }
             }
         }
-        
-        
         
         private function createFileFromChunks_action($temp_dir, $fileName, $chunkSize, $totalSize) {
 
@@ -911,7 +895,6 @@ class Profile extends CI_Controller {
             }
 
         }
-        
         
         private function save_action_image($new_file_name)
         {
@@ -1002,7 +985,6 @@ class Profile extends CI_Controller {
             }
         }
         
-        
         public function delete_action($action_id)
         {
             $res = $this->profile_model->get_action_info($action_id);
@@ -1028,4 +1010,38 @@ class Profile extends CI_Controller {
                         
             $this->load->view('/profile/balance_add',  $this->data);
 	}
+        
+        public function delete_album($album_id)
+        {
+            $res  =$this->profile_model->get_all_users_albums();
+            if(in_array($album_id, $res))
+            {
+                $peral = $this->profile_model->get_personal_album_id_by_array($this->data['user_info']->user_id);
+                if($peral[$album_id]->id)
+                {
+                    $ss = $this->profile_model->get_albums_photo($album_id);
+                    if(count($ss) > 0)
+                    {
+                        $this->session->set_userdata('error','Альбом не пустой. Сначала удалите все фотографии из альбома.');
+                        redirect('/profile/view_personal_album/'.$album_id);
+                    }
+                    else
+                    {
+                        $this->profile_model->delete_personal_album($album_id);
+                        $this->session->set_userdata('success','Альбом успешно удален.');
+                        redirect('/profile/edit_portfolio/');
+                    }
+                }
+                else
+                {
+                    $this->session->set_userdata('error','Удалить можно только персональные альбомы.');
+                    redirect('/profile/edit_portfolio/');
+                }
+            }
+            else
+            {
+                $this->session->set_userdata('error','У вас нет такого альбома. Его невозможно удалить.');
+                redirect('/profile/edit_portfolio');
+            }
+        }
 }

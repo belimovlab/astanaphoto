@@ -421,7 +421,7 @@ class Profile_model extends CI_Model {
         
         public function get_comments_count()
         {
-            $res = $this->db->query("SELECT type_comments,COUNT(id) as cnt FROM `comments` WHERE to_user_id = '".$this->session->userdata('user_info')->user_id."' GROUP BY type_comments")->result();
+            $res = $this->db->query("SELECT type_comments,COUNT(id) as cnt FROM `comments` WHERE to_user_id = '".$this->session->userdata('user_info')->user_id."' GROUP BY type_comments ")->result();
             $tmp = array();
             foreach($res as $one)
             {
@@ -435,4 +435,38 @@ class Profile_model extends CI_Model {
             $res = $this->db->query("SELECT count(user_id) as cnt FROM `profile` WHERE bookmarks LIKE '%".$this->session->userdata('user_info')->user_id."%'")->row();
             return $res->cnt;
         }
+        
+        
+        
+        public function get_all_users_albums_by_id_key_array()
+        {
+            $personal_album = $this->get_personal_album($this->session->userdata('user_info')->user_id);
+            $ganres_albums  = $this->db->get_where('ganres',array(
+                'user_type' => $this->session->userdata('user_info')->account_type
+            ))->result();
+            
+            $res_albums = array();
+            if($this->session->userdata('user_info')->profi)
+            {
+                foreach($personal_album as $one)
+                {
+                    $res_albums[$one->id] = $one;
+                }
+            }
+            foreach($ganres_albums as $one)
+            {
+                $res_albums[$one->id] = $one;
+            }
+            
+            return $res_albums;
+        }
+        
+        public function delete_personal_album($album_id)
+        {
+            $this->db->delete('personal_album',array(
+                'id'      => $album_id,
+                'user_id' => $this->session->userdata('user_info')->user_id
+            ));
+        }
+        
 }

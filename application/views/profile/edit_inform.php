@@ -4,7 +4,13 @@
     window.profi_about_length = <?php echo $user_info->profi ?  MainSiteConfig::get_profi_parametrs('profi_about_length'):  MainSiteConfig::get_profi_parametrs('non_profi_about_length');?>;
     window.ad_gen = <?php echo $ad_gen ? json_encode($ad_gen) :'[];';?>
 </script>
-
+<div class="sub_top">
+    <div class="content_top">
+        <a href="<?php echo base_url('/profile')?>">Мой профиль</a>
+        <i class="fa fa-angle-right"></i>
+        <a href="<?php echo base_url('/profile/edit_inform/')?>">Редактирование основной информации</a>
+    </div>
+</div>
 
 <div class="container_15 margin_top_20px">
     <div class="grid_11 panel">

@@ -11,7 +11,7 @@
         
 
         <div class="panel_item panel">
-            <div class="panel_title">Лучшие работы <span class="edit"><a href="<?php echo base_url('/profile/edit_top_works')?>"><i class="fa fa-pencil"></i> Редактировать</a></span></div>
+            <div class="panel_title"><?php echo $album_info_tmp->name?> </div>
             <div class="panel_content">
                 <div class="photo_list" data-gal_id="1">
                     <?php if(count($album_photos) > 0):?>

@@ -43,10 +43,9 @@ p.small_show_image img{
 }
 
 img.action_big_image{
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-    width: 740px;
+    padding-top: 5px;
+    width: 860px;
+    margin-left: -30px;
 }
 
 

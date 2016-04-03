@@ -857,17 +857,112 @@ span.album_photo_count{
 
 
 
+.comments_item{
+    width: 100%;
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid #F5F7F8;
+    border-left: 2px solid #009688;
+    margin: 10px 0px;
+}
+
+.comments_item:last-child
+{
+    border-bottom: none;
+}
+
+
+.comments_user{
+    display: inline-block;
+    float: left;
+    width: 60px;
+    text-align: center;
+}
+
+.comments_user img{
+
+    border: none;
+}
+
+.comments_content{
+    display: inline-block;
+    float: left;
+    width: 658px;
+}
+
+.comments_type_comments{
+    display: inline-block;
+    float: left;
+    width: 60px;
+    text-align: center;
+}
+
+
+.comments_content_user_name{
+    width: 100%;
+    display: block;
+    
+}
+
+.comments_content_user_name a{
+    font-weight: bold;
+}
+
+
+.comments_content_user_name a:hover{
+    text-decoration: underline;
+}
+
+
+ .plus{
+    border-left: 2px solid #00ada7;
+}
+
+ .minus{
+    border-left: 2px solid #ff4081;
+}
+
+ .neutral{
+    border-left: 2px solid #03a9f4;
+}
 
 
 
+span.plus_1{
+    color: #00ada7;
+    font-weight: bold;
+}
 
+ span.minus_1{
+    color: #ff4081;
+    font-weight: bold;
+}
 
+span.neutral_1{
+    color: #03a9f4;
+    font-weight: bold;
+}
 
+.action_title_new{
+    letter-spacing: -0.1px;
+    color: #2b2f33;
+    padding: 5px 0px;
+}
 
+.full_image{
+    margin-left: -20px;
+}
 
+.comments_content_user_comment_type{
+    width: 100%;
+    display: block;
+    font-size: 11px;
+    color: #777;
+}
 
-
-
-
-
-
+.comments_content_user_comment_text{
+    width: 100%;
+    display: block;
+    color: #777;
+    padding: 5px 0px;
+}

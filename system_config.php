@@ -2,58 +2,58 @@
     
     class MainSiteConfig{
         private static $outer_config = array(
-            'site_url'              => 'http://astanaphoto.cms/',
-            'site_panel_url'        => 'http://astanaphoto.cms/panel/',
-            'site_title'            => 'Астана Фото',
-            'site_set_session_path' => './cache_sess',
-            'encryption_key'        => 'Super_secret_key_5203',
-            'db_host'               => 'localhost',
-            'db_user'               => 'root',
-            'db_password'           => 'pass',
-            'db_name'               => 'astanaphoto.cms',
-            'noreply_email'         => 'noreply@omskphoto.ru',
-            'email_from_name'       => 'Администрация сервиса',
+            'site_url'              => 'http://astanaphoto.cms/',          // URL Сайта
+            'site_panel_url'        => 'http://astanaphoto.cms/panel/',    // URL панели администратора
+            'site_title'            => 'Астана Фото',                      // Название сайта(Будет выводиться если не задано для страницы)
+            'site_set_session_path' => './cache_sess',                     // Путь к папке с сессиями
+            'encryption_key'        => 'Super_secret_key_5203',            // Ключ Шифрования на сайте данных
+            'db_host'               => 'localhost',                        // Сервер базы данных
+            'db_user'               => 'root',                             // пользователь БД
+            'db_password'           => 'pass',                             // Пароль  БД
+            'db_name'               => 'astanaphoto.cms',                  // Название БД
+            'noreply_email'         => 'noreply@omskphoto.ru',             // Email  для отправдения писем
+            'email_from_name'       => 'Администрация сервиса',            // Имя для Email
             'not_avatar_big'        => array(
-                                            'male'=> '/assets/images/male_avatar_10.png',
-                                            'female' => '/assets/images/female_avatar_10.png' 
+                                            'male'=> '/assets/images/male_avatar_10.png',      // Аватарка для тех, у кого аватарки нет. Мужской род. Большой размер
+                                            'female' => '/assets/images/female_avatar_10.png'  // Аватарка для тех, у кого аватарки нет. Женский род. Большой размер
                                        ),
             'not_avatar_small'      => array(
-                                            'male'=> '/assets/images/male_avatar_10_small.png',
-                                            'female' => '/assets/images/female_avatar_10_small.png' 
+                                            'male'=> '/assets/images/male_avatar_10_small.png',      // Аватарка для тех, у кого аватарки нет. Мужской род. Маленький размер
+                                            'female' => '/assets/images/female_avatar_10_small.png'  // Аватарка для тех, у кого аватарки нет. Мужской род. Маленький размер
                                        ),
-            'non_image_action'      => '/assets/images/non_image_action.png'
+            'non_image_action'      => '/assets/images/non_image_action.png'  // Изображение, которое отображается, если не задано изображение в рекламной акции
         );
         
         private static $profi_parametrs = array(
-            'profi_about_length'          => 500,
-            'non_profi_about_length'      => 300,
-            'profi_photo_count'           => 20,
-            'non_profi_photo_count'       => 10,
-            'profi_personal_albums_count' => 5,
-            'profi_best_photos'           => 10,
-            'non_profi_best_photos'       => 5,
-            'profi_actions'               => 6,
-            'non_profi_actions'               => 3
+            'profi_about_length'          => 500,  // Длина текста  краткой информации для PROFI
+            'non_profi_about_length'      => 300,  // Длина текста  краткой информации для всех
+            'profi_photo_count'           => 20,   // Количество фотографий в альбоме для PROFI
+            'non_profi_photo_count'       => 10,   // Количество фотографий в альбоме для всех
+            'profi_personal_albums_count' => 5,    // Количество дополнительных альбомов для PROFI
+            'profi_best_photos'           => 10,   // Колчиество работ в разделе Лучшие работы для PROFI
+            'non_profi_best_photos'       => 5,    // Колчиество работ в разделе Лучшие работы для всех
+            'profi_actions'               => 6,    // Количество рекламных акций для PROFI
+            'non_profi_actions'               => 3 // Количество рекламных акций для всех
             
         );
         
 
 
         private static $rating_value = array(
-            'phone'      => 10,
-            'skype'      => 10,
-            'vk'         => 10,
-            'facebook'   => 10,
-            'twitter'    => 10,
-            'ok'         => 10,
-            'site'       => 15,
-            'avatar'     => 25,
-            'comment'    => 50,
-            'bookmarks'  => 30,
-            'actions'    => 25,
-            'about'      => 10,
-            'profi'      => 100,
-            'profi_cost' => 100
+            'phone'      => 10,   // Баллы рейтинга за ТЕЛЕФОН
+            'skype'      => 10,   // Баллы рейтинга за учетную запись SKYPE
+            'vk'         => 10,   // Баллы рейтинга за учетную запись Вконтакте
+            'facebook'   => 10,   // Баллы рейтинга за учетную запись Facebook
+            'twitter'    => 10,   // Баллы рейтинга за учетную запись Twitter
+            'ok'         => 10,   // Баллы рейтинга за учетную запись Odnoklassniki
+            'site'       => 15,   // Баллы рейтинга за веб сайт
+            'avatar'     => 25,   // Баллы рейтинга за ДОБАВЛЕНИЯ АВАТАРКИ
+            'comment'    => 50,   // Баллы рейтинга за ОТЗЫВ
+            'bookmarks'  => 30,   // Баллы рейтинга за добавление в раздел избранного
+            'actions'    => 25,   // Баллы рейтинга за рекламную акцию
+            'about'      => 10,   // Баллы рейтинга за текст дополнительной информации
+            'profi'      => 100,   // Баллы рейтинга за покупку статуса PROFI,
+            'profi_cost' => 100   // стоимость статуса PROFI за месяц
         );
 
         public static function get_profi_parametrs($key)

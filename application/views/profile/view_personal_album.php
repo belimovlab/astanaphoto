@@ -13,7 +13,7 @@
 </div>
 <div class="container_15 margin_top_20px">
     <div class="grid_11 panel">
-        <div class="panel_title"><?php echo $title;?></div>
+        <div class="panel_title"><?php echo $title;?> <span class="edit"><a href="<?php echo base_url('/profile/delete_album/'.$album_info->id)?>"><i class="fa fa-trash"></i> Удалить</a></span></div>
         <div class="panel_content">
             <?php if($error):?>
             <p class="error_mess">

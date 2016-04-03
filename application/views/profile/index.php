@@ -1,5 +1,9 @@
 <?php echo $header;?>
-
+<div class="sub_top">
+    <div class="content_top">
+        <a href="<?php echo base_url('/profile')?>">Мой профиль</a>
+    </div>
+</div>
 <div class="container_15 margin_top_20px">
     <div class="grid_11">
         
@@ -72,7 +76,8 @@
                     </div>
                     <?php endforeach;?>
                     <?php else:?>
-                    <p class="text_align_center">Нет лучших работ.</p>
+                    <p class="text_align_center">Нет лучших работ</p>
+                    
                     <?php endif;?>
                 </div>
                 <div class="clearfix"></div>
@@ -87,11 +92,27 @@
             <div class="panel_title">Портфолио <span class="edit"><a href="<?php echo base_url('/profile/edit_portfolio')?>"><i class="fa fa-pencil"></i> Редактировать</a></span></div>
             <div class="panel_content">
                 <div class="photo_list1">
+                    <?php if(count($gets_albums) > 0):?>
                     <?php foreach($gets_albums as $one):?>
                     <div class="photo_list_item1">
-                        <a href="<?php echo base_url('/profile/view_portfolio_item/'.$one[0]->album_id)?>"><img src="/content/user_photos/140_<?php echo $one[0]->filename?>"></a>
+                        
+                        
+                        <figure class="imghvr-slide-up">
+                            <img src="/content/user_photos/140_<?php echo $one[0]->filename?>">
+                            <figcaption>
+                                <?php echo $user_albums[$one[0]->album_id]->name;?>
+                            </figcaption>
+                            <a href="<?php echo base_url('/profile/view_portfolio_item/'.$one[0]->album_id)?>"></a>
+                        </figure>
+                        
                     </div>
                     <?php endforeach;?>
+                    <?php else:?>
+                    <p class="text_align_center">У вас нет ваших работ в портфолио</p>
+                    <p class="text_align_center color_777">
+                        Заполненое портфолио увеличивает ваши шансы быть выбранным в качестве исполнителя. Ваш рейтинг зависит от вашего портфолио.
+                    </p>
+                    <?php endif;?>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -114,7 +135,7 @@
                        
                         <?php if($one->image):?>
                         <div class="action_image">
-                            <img src="/content/user_action/200_<?php echo $one->image?>">
+                            <a href="<?php echo base_url('/profile/view_action/'.$one->id)?>"><img src="/content/user_action/200_<?php echo $one->image?>"></a>
                         </div>
                         <div class="action_info">
                             <div class="action_title">
@@ -165,7 +186,28 @@
                 <?php if(count($comments) > 0):?>
                 
                     <?php foreach($comments as $one):?>
-                        
+                    
+                    <div class="clearfix"></div>    
+                    <div class="comments_item <?php echo $one->type_comments?>">
+                        <div class="comments_user">
+                            <a href="<?php echo base_url('/user_'.$one->user_id)?>"><img src="<?php echo $one->small_photo ? $one->small_photo : MainSiteConfig::get_item('not_avatar_small')[$one->sex]?>"></a>
+                        </div>
+                        <div class="comments_content">
+                            <div class="comments_content_user_name">
+                                <a href="<?php echo base_url('/user_'.$one->user_id)?>"><?php echo $one->first_name." ".$one->second_name?></a>
+                            </div>
+                            <div class="comments_content_user_comment_type">
+                                <span class="<?php echo $one->type_comments?>_1"><?php echo $one->type_comments == "plus" ? 'Положительный' : ($one->type_comments == "minus" ? 'Отрицательный' : 'Нейтральный');?></span> отзыв оставлен <strong><?php echo date("d.m.Y",  strtotime($one->create_date))?></strong>
+                            </div>
+                            <div class="comments_content_user_comment_text">
+                                <?php echo $one->text?>
+                            </div>
+                        </div>
+                        <div class="comments_type_comments"></div>
+                        <div class="clearfix"></div> 
+                    </div>
+                
+                
                     <?php endforeach;?>
                 
                 <?php else:?>
