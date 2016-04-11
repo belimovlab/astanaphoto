@@ -936,6 +936,7 @@ class Profile extends CI_Controller {
             $title  = trim($this->input->post('title'));
             $text = trim($this->input->post('text'));
             $file_name = trim($this->input->post('file_name'));
+            $end_date = date('Y-m-d H:i:s',  strtotime($this->input->post('end_date')));
             if($title)
             {
                 if($text == '' && $file_name == '')
@@ -948,7 +949,7 @@ class Profile extends CI_Controller {
                     $res = $this->profile_model->get_user_actions_count();
                     if($res < MainSiteConfig::get_profi_parametrs($this->data['user_info']->profi ? 'profi_actions' : 'non_profi_actions'))
                     {
-                        $this->profile_model->save_user_action($title,$text,$file_name);
+                        $this->profile_model->save_user_action($title,$text,$file_name,$end_date);
                         $this->session->set_userdata('success','Акция успешно добавлена');
                         redirect('/profile/edit_actions');
                     }
@@ -1007,7 +1008,8 @@ class Profile extends CI_Controller {
 	{
             $this->data['header']        = $this->themelib->get_header('Пополнение баланса','profile/signin,profile/index',  $this->data);
             $this->data['footer']        = $this->themelib->get_footer();
-                        
+            $this->data['error']         = $this->themelib->getSessionValue('error');
+            $this->data['success']       = $this->themelib->getSessionValue('success');
             $this->load->view('/profile/balance_add',  $this->data);
 	}
         
@@ -1044,4 +1046,129 @@ class Profile extends CI_Controller {
                 redirect('/profile/edit_portfolio');
             }
         }
+        
+        public function balance_payment()
+	{
+            if($this->input->post('OutSum') && is_numeric($this->input->post('OutSum')))
+            {
+                $this->data['header']   = $this->themelib->get_header('Подтверждение пополнения баланса','profile/signin,profile/index',  $this->data);
+                $this->data['footer']   = $this->themelib->get_footer();
+                $this->data['error']    = $this->themelib->getSessionValue('error');
+                $this->data['success']  = $this->themelib->getSessionValue('success');
+                
+                
+                $mrh_login = $this->data['mrh_login'] = MainSiteConfig::get_robokassa_item('merchant_id');
+                $mrh_pass1 = $this->data['mrh_pass1'] = MainSiteConfig::get_robokassa_item('test_password_1');
+                $inv_id    = $this->data['inv_id']    = $this->data['user_info']->user_id;
+                $out_summ  = $this->data['out_summ'] = $this->input->post('OutSum');
+                $shp_item  = $this->data['shp_item']  = $this->data['user_info']->user_id."_".mktime();
+                             $this->data['culture']   = "ru";
+                             $this->data['encoding']  = "utf-8";
+                             $this->data['email']     = $this->data['user_info']->email;
+                             $this->data['inv_desc']  =  "Пополнение баланса в сервисе ".MainSiteConfig::get_item('site_title');
+                $this->data['crc']       = md5("$mrh_login:$out_summ:$inv_id:$mrh_pass1:Shp_item=$shp_item");
+
+                
+                $this->load->view('/profile/balance_payment',  $this->data);
+            }
+            else
+            {
+                $this->session->set_userdata('error','Заполните сумму пополнения верно.');
+                redirect('/profile/balance_add');
+            }
+            
+	}
+        
+        public function payment_good()
+        {
+            $this->data['header']   = $this->themelib->get_header('Успешная операция','profile/signin,profile/index',  $this->data);
+            $this->data['footer']   = $this->themelib->get_footer();
+            $this->data['error']    = $this->themelib->getSessionValue('error');
+            $this->data['success']  = $this->themelib->getSessionValue('success');
+            $this->load->view('/profile/payment_good',  $this->data);
+        }
+        
+        public function payment_bad()
+        {
+            $this->data['header']   = $this->themelib->get_header('Не успешная операция','profile/signin,profile/index',  $this->data);
+            $this->data['footer']   = $this->themelib->get_footer();
+            $this->data['error']    = $this->themelib->getSessionValue('error');
+            $this->data['success']  = $this->themelib->getSessionValue('success');
+            $this->load->view('/profile/payment_bad',  $this->data);
+        }
+        
+        public function payment_response()
+        {
+            $out_summ  = $_POST["OutSum"];
+            $inv_id    = $_POST['InvId'];
+            $mrh_pass1 = MainSiteConfig::get_robokassa_item('test_password_2');
+            $shp_item  = $_POST['Shp_item'];
+            
+            $crc = md5("$out_summ:$inv_id:$mrh_pass1:Shp_item=$shp_item");
+
+            
+            if($crc == $_POST['crc'])
+            {
+                $this->profile_model->plus_balance($out_summ,$inv_id, $shp_item);
+                $this->userlib->reload_user_info();
+            }
+            
+        }
+        
+        public function balance()
+	{
+            $this->data['header']  = $this->themelib->get_header('Баланс пользователя','profile/signin,profile/index',  $this->data);
+            $this->data['footer']  = $this->themelib->get_footer('profile/balance');
+            $this->data['error']   = $this->themelib->getSessionValue('error');
+            $this->data['success'] = $this->themelib->getSessionValue('success');
+            $this->data['history'] = $this->profile_model->get_history_balance(10); 
+            $this->load->view('/profile/balance',  $this->data);
+	}
+        
+        
+        public function get_ajax_balance_more()
+        {
+            if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+                if($this->input->post('last_id'))
+                {
+                    $this->data['more_his'] = $this->profile_model->get_history_balance(10,  $this->input->post('last_id'));
+                    echo json_encode(array(
+                        'status' => 'success',
+                        'text'   => base64_encode($this->load->view('/profile/get_ajax_balance_more',  $this->data,TRUE))
+                    ));
+                }
+                else
+                {
+                    echo json_encode(array('error_text'=>'not_view','status'=>'error'));
+                }
+            }
+            else
+            {
+                echo json_encode(array('error_text'=>'not_ajax','status'=>'error'));
+            }
+        }
+        
+        
+        public function test_func()
+	{
+            
+            for($i = 0 ; $i < 15; $i++)
+            {
+                $tmp = rand(1,2);
+                $mas = array(
+                    'user_id' => $this->data['user_info']->user_id,
+                    'create_date' => date("Y-m-d H:i:s"),
+                    'plus' => $tmp == 1 ? '1': '',
+                    'minus' => $tmp == 2 ? '1': '',
+                    'value' => rand(100,15000),
+                    'id_check'=>'',
+                    'descr' => 'Пополнение баланса  по квитанции'
+                );
+                $this->db->query($this->db->insert_string('payment',$mas));
+                sleep(1);
+                
+            } 
+   
+            
+	}
 }

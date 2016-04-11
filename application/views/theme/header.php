@@ -34,7 +34,7 @@
     <header>
         <div class="container_15">
             <div class="grid_3 logo">
-                <a href="<?php echo base_url('/');?>"><img src="/assets/images/logo.png"></a>
+                <a href="<?php echo base_url('/');?>"><img src="/assets/images/logo_new_2.png"></a>
             </div>
             <div class="grid_6 navigation">
                 <a href="<?php echo base_url('/doer')?>">Исполнители</a>

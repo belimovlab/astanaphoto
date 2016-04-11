@@ -6,6 +6,8 @@
         <a href="<?php echo base_url('/profile/edit_actions')?>">Редактирование акций</a>
         <i class="fa fa-angle-right"></i>
         <a href="<?php echo base_url('/profile/create_action/')?>"><?php echo $title;?></a>
+        
+        <span class="balance_top"><a href="<?php echo base_url('/profile/balance')?>"><?php echo number_format($user_info->balance ? $user_info->balance : 0,2,'.',' ')?> <i class="fa fa-ruble"></i></a></span>
     </div>
 </div>
 <div class="container_15 margin_top_20px">
@@ -78,6 +80,21 @@
                         </p>
                     </div>
                     
+                </div>
+            </div>
+            
+            <div class="clearfix"></div>
+            
+            <div class="sub_content_block">
+                <div class="sub_title">4. Срок окончания акции</div>
+                <div class="sub_content_block_content">
+                    <p>
+                        <label for="end_date">Вы можете задать срок окончания вашей рекламной акции. Если срок не задан, то акция будет размещена сроком на 1 месяц.</label>
+                    </p>
+                    <p>
+                        <input type="date" required name="end_date" placeholder="01.01.1970" id="end_date">
+                    </p>
+
                 </div>
             </div>
             

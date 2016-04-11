@@ -360,7 +360,7 @@ class Profile_model extends CI_Model {
         
         public function get_all_actions()
         {
-            $res = $this->db->limit($this->session->userdata('user_info')->profi ? MainSiteConfig::get_profi_parametrs('profi_actions') : MainSiteConfig::get_profi_parametrs('non_profi_actions'))->get_where('actions',array(
+            $res = $this->db->order_by('create_date','desc')->limit($this->session->userdata('user_info')->profi ? MainSiteConfig::get_profi_parametrs('profi_actions') : MainSiteConfig::get_profi_parametrs('non_profi_actions'))->get_where('actions',array(
                'user_id'  => $this->session->userdata('user_info')->user_id
                ))->result();
             return $res;
@@ -374,10 +374,19 @@ class Profile_model extends CI_Model {
             return $res;
         }
 
-        public function save_user_action($title,$text='',$image='')
+        public function save_user_action($title,$text='',$image='',$end_date='')
         {
-            $end_date = mktime(0, 0, 0, date("m"), date("d"),   date("Y"));
-            $end_date = date("Y-m-d H:i:s",  strtotime("+1 month",$end_date));
+            if($end_date)
+            {
+                
+            }
+            else
+            {
+                $end_date = mktime(0, 0, 0, date("m"), date("d"),   date("Y"));
+                $end_date = date("Y-m-d H:i:s",  strtotime("+1 month",$end_date)); 
+            }
+                
+            
             $this->db->insert('actions',array(
                 'id'       => '',
                 'user_id'  => $this->session->userdata('user_info')->user_id,
@@ -467,6 +476,35 @@ class Profile_model extends CI_Model {
                 'id'      => $album_id,
                 'user_id' => $this->session->userdata('user_info')->user_id
             ));
+        }
+        
+        public function plus_balance($summ,$user_id, $id_check='')
+        {
+            $this->db->query("UPDATE `profile` SET `balance` = `balance` + '".$summ."' WHERE `user_id`='".$user_id."' LIMIT 1");
+            $this->db->insert('payment',array(
+                'id'      => '',
+                'user_id' => $user_id,
+                'create_date' => date("Y-m-d H:i:s"),
+                'plus' => 1,
+                'value' => $summ,
+                'desct' => 'Пополнение баланса '.$id_check ? " по квитанции № ".$id_check: ''
+            ));
+        }
+        
+        
+        public function get_history_balance($cnt_entries='',$from_id = '')
+        {
+            if($cnt_entries)
+            {
+               
+                return $this->db->query("SELECT * FROM `payment` WHERE `user_id`='".$this->session->userdata('user_info')->user_id."' ".($from_id ? " AND `id` < '".$from_id ."'" : "")." ORDER BY `create_date` DESC LIMIT ".$cnt_entries)->result();
+            }
+            else
+            {
+                return $this->db->order_by('create_date','desc')->get_where('payment',array(
+                    'user_id' => $this->session->userdata('user_info')->user_id
+                ))->result();
+            }
         }
         
 }

@@ -6,48 +6,44 @@
         <a href="<?php echo base_url('/profile/balance')?>">Баланс</a>
         <i class="fa fa-angle-right"></i>
         <a href="<?php echo base_url('/profile/balance_add/')?>"><?php echo $title;?></a>
+        
+        <span class="balance_top"><a href="<?php echo base_url('/profile/balance')?>"><?php echo number_format($user_info->balance ? $user_info->balance : 0,2,'.',' ')?> <i class="fa fa-ruble"></i></a></span>
     </div>
 </div>
 <div class="container_15 margin_top_20px">
     <div class="grid_11 panel">
-        <div class="panel_title"><?php echo $title;?> <span class="edit"><a href="<?php echo base_url('/profile/delete_action/'.$action->id)?>"><i class="fa fa-trash"></i> Удалить</a></span></div>
+        <div class="panel_title"><?php echo $title;?> </div>
         <div class="panel_content">
-            <?php if($error):?>
-            <p class="error_mess">
-                <?php echo $error;?>
-            </p>
-            <?php endif;?>
-            <?php if($success):?>
-            <p class="success_mess">
-                <?php echo $success;?>
-            </p>
-            <?php endif;?>
-            ывыв
-            <?php
-                $mrh_login = "yrk";
-                $mrh_pass1 = "pjYWzQDC4qI896Q2ZAhK";
-                $inv_id = 678678;
-                $inv_desc = "Товары для животных";
-                $out_summ = "100.00";
-                $shp_item = 1;
-                $culture = "ru";
-                $encoding = "utf-8";
-                $IsTest = 1;
-                $crc  = md5("$mrh_login:$out_summ:$inv_id:$mrh_pass1");
-                print "<html><script language=JavaScript ".
-                    "src='https://auth.robokassa.ru/Merchant/PaymentForm/FormMS.js?".
-                    "MerchantLogin=$mrh_login&OutSum=$out_summ&InvoiceID=$inv_id".
-                    "&Description=$inv_desc&SignatureValue=$crc&IsTest=$IsTest'></script></html>";
-                
-                
-                                
-
-
-            ?>
-            
+            <div class="sub_content_block">
+                <?php if($error):?>
+                <p class="error_mess">
+                    <?php echo $error;?>
+                </p>
+                <?php endif;?>
+                <?php if($success):?>
+                <p class="success_mess">
+                    <?php echo $success;?>
+                </p>
+                <?php endif;?>
+                <div class="sub_title">1. Пополнение баланса</div>
+                <div class="sub_content_block_content">
+                    <p>
+                        <label for="out_summ">Введите сумму пополнения вашего баланса.</label>
+                    </p>
+                    <p>
+                    <form action="<?php echo base_url('/profile/balance_payment')?>" method="POST">
+                        <div class="left_input">
+                            <input type="text" required name="OutSum" id="out_summ" value="1000">
+                        </div>
+                        <div class="right_button">
+                            <button class="btn btn_green click_btn" type="submit"><i class="fa fa-ruble"></i> Пополнить баланс</button>
+                        </div>
+                    </form>
+                    </p>
+                </div>
+            </div>
+            <div class="clearfix"></div>
         </div>
-        
-        <div class="panel_title">Автор: <?php echo $user_info->first_name." ".$user_info->second_name;?></div>
     </div>
     <div class="grid_4 panel">
         <div class="panel_title">Информация и подсказки</div>
@@ -56,7 +52,7 @@
                 <ul>
                     <li><strong>Пополнение</strong> баланса происходит путем использования сервиса <strong>ROBOKASSA</strong>.</li>
                     <li><strong>Сумма</strong> пополнения баланса является произвольной.</li>
-                    <li><strong>Напоминаем</strong> вам про <a href="<?php echo base_url('/terms')?>">условия использования</a> сервиса.</li>
+                    <li><strong>Напоминаем</strong> вам про <a href="<?php echo base_url('/terms')?>" class="right_terms">условия использования</a> сервиса.</li>
                 </ul>
             </div>
             <p class="btn_more">

@@ -11,7 +11,7 @@
             'db_user'               => 'root',                             // пользователь БД
             'db_password'           => 'pass',                             // Пароль  БД
             'db_name'               => 'astanaphoto.cms',                  // Название БД
-            'noreply_email'         => 'noreply@omskphoto.ru',             // Email  для отправдения писем
+            'noreply_email'         => 'noreply@astanaphoto.pro',          // Email  для отправдения писем
             'email_from_name'       => 'Администрация сервиса',            // Имя для Email
             'not_avatar_big'        => array(
                                             'male'=> '/assets/images/male_avatar_10.png',      // Аватарка для тех, у кого аватарки нет. Мужской род. Большой размер
@@ -55,6 +55,16 @@
             'profi'      => 100,   // Баллы рейтинга за покупку статуса PROFI,
             'profi_cost' => 100   // стоимость статуса PROFI за месяц
         );
+        
+        
+        private static $robokassa_settings = array(
+            'merchant_id'      => 'astanaphotopro',
+            'password_1'       => 'rI1y6K3FvILPrlxs9f0X',
+            'password_2'       => 'y9cc3Nb3oDB5Vb9BKGmV',
+            'test_password_1'  => 'ldUXy96dgUj9RrH68Pov',
+            'test_password_2'  => 'hpshhd6IpA4FU8SX1xd0'
+        );
+
 
         public static function get_profi_parametrs($key)
         {
@@ -71,9 +81,17 @@
         {
             return self::$outer_config[$key];
         }
+        
+        
+        public static function get_robokassa_item($key)
+        {
+            return self::$robokassa_settings[$key];
+        }
+        
     }
 
 
-
-     
-
+//  Пароль 1  - 
+//  Пароль 2  -      
+//  Тест 1  - 
+//  Тест 2  -     

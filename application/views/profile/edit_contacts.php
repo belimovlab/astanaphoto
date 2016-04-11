@@ -4,6 +4,8 @@
         <a href="<?php echo base_url('/profile')?>">Мой профиль</a>
         <i class="fa fa-angle-right"></i>
         <a href="<?php echo base_url('/profile/edit_contacts/')?>">Редактирование контактной информации</a>
+        
+        <span class="balance_top"><a href="<?php echo base_url('/profile/balance')?>"><?php echo number_format($user_info->balance ? $user_info->balance : 0,2,'.',' ')?> <i class="fa fa-ruble"></i></a></span>
     </div>
 </div>
 

@@ -966,3 +966,256 @@ span.neutral_1{
     color: #777;
     padding: 5px 0px;
 }
+
+.payment_div{
+    width: 100%;
+    margin: 20px auto;
+    display: block;
+    padding: 10px;
+    border: 1px solid #f3f5f7;
+}
+
+.payment_item{
+    width: 100%;
+    display: block;
+}
+
+.payment_title{
+    color: rgb(61, 64, 81);
+    text-transform: uppercase;
+    width: 60%;
+    display: inline-block;
+    float: left;
+    font-size: 36px;
+}
+
+.payment_from{
+    color: rgb(61, 64, 81);
+    width: 40%;
+    display: inline-block;
+    float: left;
+    text-align: right;
+    font-size: 11px;
+}
+
+.payment_from p{
+    padding-top: 0px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.payment_id_check{
+    color: rgb(61, 64, 81);
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+.invoice{
+    width: 100%;
+    display: block;
+    border: none;
+    max-width: 100%;
+}
+
+.invoice tr th{
+    background: #262B34;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+
+.invoice tr th:nth-child(1)
+{
+    width: 5%;
+}
+
+.invoice tr th:nth-child(2)
+{
+    width: 15%;
+}
+.invoice tr th:nth-child(3)
+{
+    width: 70%;
+}
+.invoice tr th:nth-child(4)
+{
+    width: 20%;
+}
+
+
+.invoice tr td{
+
+    text-align: center;
+    padding: 10px 0px;
+    border: 1px solid #eee;
+}
+
+
+.invoice tr td:nth-child(1)
+{
+    width: 5%;
+}
+
+.invoice tr td:nth-child(2)
+{
+    width: 15%;
+}
+.invoice tr td:nth-child(3)
+{
+    width: 60%;
+    text-align: left;
+    padding-left: 10px;
+}
+.invoice tr td:nth-child(4)
+{
+    width: 20%;
+}
+
+.balance_main{
+    color: #315c7d;
+    font-size: 50px;
+    line-height: 50px;
+    font-weight: bold;
+}
+
+
+span.balance_top{
+    display: inline-block;
+    float: right;
+}
+
+span.balance_top a{
+    padding-left: 0px;
+    color: #315c7d;
+}
+
+
+.payment_history{
+    width: 100%;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+.payment_history tr{
+    width: 100%;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+.payment_history  th{
+    background: #262B34;
+    color: #fff;
+    padding: 10px 5px;
+    text-align: center;
+    
+}
+
+.payment_history  th:nth-child(1)
+{
+    width: 5%;
+    min-width: 5%;
+    max-width: 5%;
+    text-align: center;
+}
+
+.payment_history  th:nth-child(2)
+{
+    width: 13%;
+    min-width: 13%;
+    max-width: 13%;
+    text-align: center;
+}
+
+.payment_history  th:nth-child(3)
+{
+    width: 15%;
+    min-width: 15%;
+    max-width: 15%;
+    text-align: center;
+}
+
+.payment_history  th:nth-child(4)
+{
+    width: 15%;
+    min-width: 15%;
+    max-width: 15%;
+    text-align: center;
+}
+
+.payment_history  th:nth-child(5)
+{
+    width: 50%;
+    min-width: 50%;
+    max-width: 50%;
+    text-align: center;
+}
+
+.payment_history  td{
+    padding: 15px;
+    border: 1px solid #eee;
+    overflow-wrap: break-word;  /* не поддерживает IE, Firefox; является копией word-wrap */ 
+  word-wrap: break-word;
+  word-break: break-all;  /* не поддерживает Opera12.14, значение keep-all не поддерживается IE, Chrome */ 
+  line-break: strict;  /* нет поддержки для русского языка */ 
+ -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto;  /* значение auto не поддерживается Chrome */ 
+}
+
+
+.payment_history  td:nth-child(1)
+{
+    width: 5%;
+    min-width: 5%;
+    max-width: 5%;
+    text-align: center;
+}
+
+.payment_history  td:nth-child(2)
+{
+    width: 13%;
+    min-width: 13%;
+    max-width: 13%;
+    text-align: center;
+}
+
+.payment_history  td:nth-child(3)
+{
+    width: 15%;
+    min-width: 15%;
+    max-width: 15%;
+    text-align: center;
+}
+
+.payment_history  td:nth-child(4)
+{
+    width: 15%;
+    min-width: 15%;
+    max-width: 15%;
+    text-align: center;
+}
+
+.payment_history  td:nth-child(5)
+{
+    width: 50%;
+    min-width: 50%;
+    max-width: 50%;
+    color: #777;
+}
+
+td.td_plus{
+    border-left: 2px solid #1BC288;
+    color: #1BC288;
+}
+td.td_minus{
+    border-left: 2px solid #e91e63;
+    color: #e91e63;
+}
+
+
+
+
+
+
+
+
